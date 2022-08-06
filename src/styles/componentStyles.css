@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,200&family=Roboto:wght@300;500;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--white: #fff;
+	--darkBlue: #06283d;
+	--purpleBlue: #1363df;
+	--lightBlue: #47b5ff;
+	--whiteBlue: #dff6ff;
+}
+
+html,
+body {
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	background-color: var(--lightBlue);
+}
+
+/* Header styling */
+header {
+	padding: 10px 0;
+	background-color: var(--darkBlue);
+	color: var(--white);
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	color: var(--whiteBlue);
+}
+
+header h1 {
+	font-size: 3rem;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+	font-weight: 300;
+	user-select: none;
+}
+
+.send-icon {
+	font-size: 3rem;
+}
