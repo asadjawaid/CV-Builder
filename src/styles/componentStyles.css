@@ -6,6 +6,29 @@
 	box-sizing: border-box;
 }
 
+/* Utility */
+.icon {
+	vertical-align: middle;
+}
+
+textarea {
+	resize: none;
+}
+
+textarea,
+input {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+.btn {
+	padding: 5px;
+	width: 200px;
+	cursor: pointer;
+}
+
+/* end utility */
+
 :root {
 	--white: #fff;
 	--darkBlue: #06283d;
@@ -30,6 +53,8 @@ header {
 	justify-content: center;
 	gap: 20px;
 	color: var(--whiteBlue);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 30px;
 }
 
 header h1 {
@@ -43,3 +68,69 @@ header h1 {
 .send-icon {
 	font-size: 3rem;
 }
+
+/* CV container */
+.cv-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: auto;
+	grid-column-gap: 50px;
+	grid-row-gap: 20px;
+	padding: 0 50px;
+}
+
+.cv-container > div {
+	background-color: var(--whiteBlue);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.cv-container .add-edu-btn {
+	margin-top: 10px;
+}
+
+.cv-container .cv-form-container {
+	border-radius: 5px;
+	padding: 0 20px 20px 20px;
+}
+
+.cv-container .cv-form-container h1 {
+	color: var(--darkBlue);
+	font-size: 1.3rem;
+	margin-top: 20px;
+}
+
+.cv-form-section {
+	margin-top: 10px;
+}
+
+.user-input-section {
+	/* margin-top: 15px; */
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap: 10px;
+}
+
+.user-input-section input,
+.user-input-section textarea {
+	padding: 5px;
+	font-size: 15px;
+	color: var(--lightBlue);
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.user-input-section input:focus,
+.user-input-section textarea:focus {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* education */
+/* .remove-edu-btn {
+	display: inline;
+	border-radius: 50%;
+	width: unset;
+	border: none;
+} */
