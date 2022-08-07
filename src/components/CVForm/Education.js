@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react';
 import '../../styles/componentStyles.css';
-// import { TbMinus } from 'react-icons/tb';
+import { TbMinus } from 'react-icons/tb';
 
 class Education extends React.Component {
 	constructor(props) {
@@ -21,6 +21,9 @@ class Education extends React.Component {
 					<input type="number" placeholder="To" min={1900} max={2099} />
 					<input type="number" placeholder="GPA" step="0.01" min={1} max={4} />
 					<textarea rows={5} placeholder="Description"></textarea>
+					<button className="btn remove-btn">
+						Remove <TbMinus className="icon minus-icon" />
+					</button>
 				</div>
 			</section>
 		);

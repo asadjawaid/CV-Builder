@@ -35,6 +35,7 @@ input {
 	--purpleBlue: #1363df;
 	--lightBlue: #47b5ff;
 	--whiteBlue: #dff6ff;
+	--matteRed: #94181a;
 }
 
 html,
@@ -104,12 +105,21 @@ header h1 {
 }
 
 .user-input-section {
-	/* margin-top: 15px; */
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	gap: 10px;
+}
+
+.user-input-section .remove-btn {
+	margin-bottom: 20px;
+	background-color: var(--matteRed);
+	color: var(--whiteBlue);
+	border: 1px solid var(--whiteBlue);
+	outline: none;
+	width: unset;
+	text-transform: uppercase;
 }
 
 .user-input-section input,
@@ -126,11 +136,3 @@ header h1 {
 .user-input-section textarea:focus {
 	border: 1px solid rgba(0, 0, 0, 0.2);
 }
-
-/* education */
-/* .remove-edu-btn {
-	display: inline;
-	border-radius: 50%;
-	width: unset;
-	border: none;
-} */
