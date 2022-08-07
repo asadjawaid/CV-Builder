@@ -52,7 +52,7 @@ class CVForm extends React.Component {
 					/>
 				))}
 
-				<button className="btn add-edu-btn" onClick={this.addNewEducation}>
+				<button className="btn add-edu-btn" onClick={this.addNewEducation} disabled={educationArray.length > 3}>
 					Add Education <TbPlus className="icon" />
 				</button>
 			</div>
