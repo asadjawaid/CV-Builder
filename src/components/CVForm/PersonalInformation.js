@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react';
-import '../../styles/componentStyles.css';
+// import '../../styles/componentStyles.css';
 import { TbPlus, TbMinus } from 'react-icons/tb';
 
 class PersonalInformation extends React.Component {
