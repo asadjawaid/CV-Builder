@@ -14,6 +14,7 @@ class CVForm extends React.Component {
 		};
 
 		this.addNewEducation = this.addNewEducation.bind(this);
+		this.deleteEducation = this.deleteEducation.bind(this);
 	}
 
 	addNewEducation() {
@@ -24,10 +25,18 @@ class CVForm extends React.Component {
 		});
 	}
 
+	// remove the education with id
+	deleteEducation(id) {
+		console.log(`Deleting education with id ${id}`);
+		const educationSectionUpdate = this.state.educationArray.filter(current => current.id !== id);
+
+		this.setState({
+			educationArray: educationSectionUpdate
+		});
+	}
+
 	render() {
 		const { educationArray } = this.state;
-
-		console.log(educationArray);
 
 		return (
 			<div className="cv-form-container">
@@ -36,7 +45,11 @@ class CVForm extends React.Component {
 				<h1>Education</h1>
 
 				{educationArray.map(currentEducation => (
-					<Education key={currentEducation.id} />
+					<Education
+						key={currentEducation.id}
+						deleteEducation={this.deleteEducation}
+						educationId={currentEducation.id}
+					/>
 				))}
 
 				<button className="btn add-edu-btn" onClick={this.addNewEducation}>

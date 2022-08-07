@@ -38,7 +38,7 @@ class PersonalInformation extends React.Component {
 							<input type="url" placeholder="Github" size="30" />
 							<input type="url" placeholder="LinkedIn" size="30" />
 							<input type="url" placeholder="Portfolio" size="30" />
-							<button onClick={this.toggleLinks}>
+							<button onClick={this.toggleLinks} className="btn remove-btn">
 								Remove links <TbMinus className="icon minus-icon" />
 							</button>
 						</>

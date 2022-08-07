@@ -6,12 +6,11 @@ import { TbMinus } from 'react-icons/tb';
 class Education extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			deleteEducation: true
-		};
 	}
 
 	render() {
+		const { deleteEducation, educationId } = this.props;
+
 		return (
 			<section className="cv-form-section">
 				<div className="user-input-section">
@@ -21,7 +20,7 @@ class Education extends React.Component {
 					<input type="number" placeholder="To" min={1900} max={2099} />
 					<input type="number" placeholder="GPA" step="0.01" min={1} max={4} />
 					<textarea rows={5} placeholder="Description"></textarea>
-					<button className="btn remove-btn">
+					<button onClick={() => deleteEducation(educationId)} className="btn remove-btn">
 						Remove <TbMinus className="icon minus-icon" />
 					</button>
 				</div>

@@ -113,6 +113,7 @@ header h1 {
 }
 
 .user-input-section .remove-btn {
+	padding: 10px;
 	margin-bottom: 20px;
 	background-color: var(--matteRed);
 	color: var(--whiteBlue);
