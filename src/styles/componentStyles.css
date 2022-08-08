@@ -72,7 +72,7 @@ header h1 {
 /* CV container */
 .cv-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 	grid-column-gap: 50px;
 	grid-row-gap: 20px;
 	padding: 50px;
@@ -144,7 +144,71 @@ Styling for CVPreview
 	top: 20px;
 	height: fit-content;
 	padding: 20px;
-	color: white;
-	background-color: var(--darkBlue);
-	user-select: none;
+	/* background-color: var(--darkBlue); */
+	/* user-select: none; */
+}
+
+/*----------------------------------------------------------- 
+Preview Header Styles 
+-------------------------------------------------------------*/
+.cv-preview-container .cv-preview-header {
+	background-color: gray;
+	display: flex;
+}
+
+.header-left,
+.header-right {
+	flex: 1;
+}
+
+.cv-preview-header .header-left {
+	background-color: blue;
+}
+
+.cv-preview-header .header-right {
+	background-color: cadetblue;
+}
+
+/* Media Queries */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	header {
+		gap: 5px;
+	}
+
+	header h1 {
+		padding: 10px 0;
+		font-size: 20px;
+		letter-spacing: 5px;
+		text-transform: uppercase;
+		font-weight: 300;
+		user-select: none;
+	}
+
+	.send-icon {
+		padding-top: 10px;
+		font-size: 2rem;
+	}
+
+	.cv-container {
+		grid-template-columns: 1fr;
+		grid-row-gap: 30px;
+		padding: 20px;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }
