@@ -5,6 +5,7 @@ import PersonalInformation from './PersonalInformation';
 import Education from './Education';
 import Experience from './Experience';
 import Project from './Project';
+// import Skill from './Skill';
 import { TbPlus } from 'react-icons/tb';
 import uniqid from 'uniqid';
 
@@ -28,6 +29,10 @@ class CVForm extends React.Component {
 		// for add/removing a project
 		this.addNewProject = this.addNewProject.bind(this);
 		this.deleteProject = this.deleteProject.bind(this);
+
+		// for add/removing a skill
+		this.addNewSkill = this.addNewSkill.bind(this);
+		this.deleteSkill = this.deleteSkill.bind(this);
 	}
 
 	// add a new education
@@ -81,17 +86,36 @@ class CVForm extends React.Component {
 		});
 	}
 
+	// for adding a new skill
+	addNewSkill() {}
+
+	// for removing a skills section
+	deleteSkill() {}
+
 	render() {
 		const { educationArray, experienceArray, projectArray } = this.state;
+		const {
+			userPersonalInfo,
+			userEducationInfo,
+			userExperienceInfo,
+			userSkillInfo,
+			userProjectInfo,
+			handlePersonalInformationChange,
+			resetInformation
+		} = this.props;
 
 		return (
 			<div className="cv-form-container">
 				<h1>Personal Information</h1>
-				<PersonalInformation />
+				<PersonalInformation
+					userPersonalInfo={userPersonalInfo}
+					handlePersonalInformationChange={handlePersonalInformationChange}
+				/>
 				{/* Education Section(s) */}
 				<h1>Education</h1>
 				{educationArray.map(currentEducation => (
 					<Education
+						userEducationInfo={userEducationInfo}
 						key={currentEducation.id}
 						deleteEducation={this.deleteEducation}
 						educationId={currentEducation.id}
@@ -105,6 +129,7 @@ class CVForm extends React.Component {
 				<h1>Experience</h1>
 				{experienceArray.map(currentExperience => (
 					<Experience
+						userExperienceInfo={userExperienceInfo}
 						key={currentExperience.id}
 						deleteExperience={this.deleteExperience}
 						experienceId={currentExperience.id}
@@ -118,6 +143,7 @@ class CVForm extends React.Component {
 				<h1>Projects</h1>
 				{projectArray.map(currentProject => (
 					<Project
+						userProjectInfo={userProjectInfo}
 						key={currentProject.projectId}
 						deleteProject={this.deleteProject}
 						projectId={currentProject.projectId}
@@ -125,6 +151,14 @@ class CVForm extends React.Component {
 				))}
 				<button className="btn add-edu-btn" onClick={this.addNewProject} disabled={projectArray.length > 2}>
 					Add Project <TbPlus className="icon" />
+				</button>
+
+				{/* Skills section */}
+				<h1>Skills and Achievements</h1>
+
+				{/* Button to reset the data */}
+				<button onClick={resetInformation} className="btn reset-btn">
+					Reset Information
 				</button>
 			</div>
 		);

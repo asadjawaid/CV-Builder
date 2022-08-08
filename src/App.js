@@ -1,25 +1,13 @@
-/* eslint-disable no-useless-constructor */
-import React from 'react';
 import Header from './components/Header';
-import CVForm from './components/CVForm/CVForm';
-import CVPreview from './components/CVPreview/CVPreview';
+import Container from './components/Container';
 
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
-			<>
-				<Header />
-				<div className="cv-container">
-					<CVForm />
-					<CVPreview />
-				</div>
-			</>
-		);
-	}
-}
+const App = () => {
+	return (
+		<>
+			<Header />
+			<Container nameOfClass="cv-container" />
+		</>
+	);
+};
 
 export default App;

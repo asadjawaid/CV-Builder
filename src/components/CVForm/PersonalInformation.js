@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react';
-// import '../../styles/componentStyles.css';
+// import Input from '../Utils/Input';
 import { TbPlus, TbMinus } from 'react-icons/tb';
 
 class PersonalInformation extends React.Component {
@@ -9,8 +9,7 @@ class PersonalInformation extends React.Component {
 		this.state = {
 			showLinks: false
 		};
-
-		this.addLinks = this.toggleLinks.bind(this);
+		this.toggleLinks = this.toggleLinks.bind(this);
 	}
 
 	// updates the state of the showLink
@@ -22,22 +21,93 @@ class PersonalInformation extends React.Component {
 	};
 
 	render() {
+		// get the props values:
+		const { userPersonalInfo, handlePersonalInformationChange } = this.props;
 		const { showLinks } = this.state;
+		const { firstName, lastName, title, description, email, phoneNumber, linkedin, github, portfolio } =
+			userPersonalInfo;
 
 		return (
 			<section className="cv-form-section">
 				{/* <h1>Personal information</h1> */}
 				<div className="user-input-section">
-					<input type="text" placeholder="First Name" minLength={3} maxLength={15} required />
-					<input type="text" placeholder="Last Name" minLength={3} maxLength={15} required />
-					<input type="text" placeholder="Title" minLength={5} maxLength={30} required />
-					<input type="email" placeholder="Email" required />
-					<input type="tel" id="phone" name="phone" placeholder="Phone Number" />
+					<input
+						type="text"
+						value={firstName}
+						placeholder="First Name"
+						minLength={3}
+						maxLength={15}
+						onChange={handlePersonalInformationChange}
+						name="firstName"
+					/>
+					<input
+						type="text"
+						value={lastName}
+						name="lastName"
+						onChange={handlePersonalInformationChange}
+						placeholder="Last Name"
+						minLength={3}
+						maxLength={15}
+					/>
+					<input
+						type="text"
+						value={title}
+						name="title"
+						onChange={handlePersonalInformationChange}
+						placeholder="Title"
+						minLength={5}
+						maxLength={30}
+					/>
+					<textarea
+						value={description}
+						name="description"
+						onChange={handlePersonalInformationChange}
+						rows={5}
+						minLength={20}
+						maxLength={400}
+						placeholder="Description"
+					></textarea>
+					<input
+						type="email"
+						value={email}
+						name="email"
+						onChange={handlePersonalInformationChange}
+						placeholder="Email"
+					/>
+					<input
+						type="tel"
+						value={phoneNumber}
+						name="phoneNumber"
+						onChange={handlePersonalInformationChange}
+						id="phone"
+						placeholder="Phone Number"
+					/>
 					{showLinks ? (
 						<>
-							<input type="url" placeholder="Github" size="30" />
-							<input type="url" placeholder="LinkedIn" size="30" />
-							<input type="url" placeholder="Portfolio" size="30" />
+							<input
+								type="url"
+								value={github}
+								name="github"
+								onChange={handlePersonalInformationChange}
+								placeholder="Github"
+								size="30"
+							/>
+							<input
+								type="url"
+								value={linkedin}
+								name="linkedin"
+								onChange={handlePersonalInformationChange}
+								placeholder="LinkedIn"
+								size="30"
+							/>
+							<input
+								type="url"
+								value={portfolio}
+								name="portfolio"
+								onChange={handlePersonalInformationChange}
+								placeholder="Portfolio"
+								size="30"
+							/>
 							<button onClick={this.toggleLinks} className="btn remove-btn">
 								Remove links <TbMinus className="icon minus-icon" />
 							</button>

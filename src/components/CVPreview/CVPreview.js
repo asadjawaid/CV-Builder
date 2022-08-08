@@ -10,7 +10,7 @@ class CVPreview extends React.Component {
 	render() {
 		return (
 			<div className="cv-preview-container">
-				<p>Form preview</p>
+				<div className="cv-preview-header"></div>
 			</div>
 		);
 	}
