@@ -38,7 +38,19 @@ class Container extends React.Component {
 
 	// Function to reset all the information
 	resetInformation = e => {
-		this.setState({});
+		this.setState({
+			userPersonalInfo: {
+				firstName: '',
+				lastName: '',
+				title: '',
+				description: '',
+				email: '',
+				phoneNumber: '',
+				linkedin: '',
+				github: '',
+				portfolio: ''
+			}
+		});
 	};
 
 	render() {

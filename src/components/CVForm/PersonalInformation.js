@@ -55,8 +55,8 @@ class PersonalInformation extends React.Component {
 						name="title"
 						onChange={handlePersonalInformationChange}
 						placeholder="Title"
-						minLength={5}
-						maxLength={30}
+						minLength={3}
+						maxLength={28}
 					/>
 					<textarea
 						value={description}
@@ -71,6 +71,7 @@ class PersonalInformation extends React.Component {
 						type="email"
 						value={email}
 						name="email"
+						maxLength={49}
 						onChange={handlePersonalInformationChange}
 						placeholder="Email"
 					/>
@@ -85,28 +86,28 @@ class PersonalInformation extends React.Component {
 					{showLinks ? (
 						<>
 							<input
-								type="url"
+								type="text"
 								value={github}
 								name="github"
 								onChange={handlePersonalInformationChange}
-								placeholder="Github"
-								size="30"
+								placeholder="Github (enter your username)"
+								maxLength={20}
 							/>
 							<input
-								type="url"
+								type="text"
 								value={linkedin}
 								name="linkedin"
 								onChange={handlePersonalInformationChange}
-								placeholder="LinkedIn"
-								size="30"
+								placeholder="LinkedIn (enter your username)"
+								maxLength={20}
 							/>
 							<input
 								type="url"
 								value={portfolio}
 								name="portfolio"
 								onChange={handlePersonalInformationChange}
-								placeholder="Portfolio"
-								size="30"
+								placeholder="Portfolio (https://yourwebsite.com)"
+								maxLength={20}
 							/>
 							<button onClick={this.toggleLinks} className="btn remove-btn">
 								Remove links <TbMinus className="icon minus-icon" />
