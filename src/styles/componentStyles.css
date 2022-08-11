@@ -21,6 +21,11 @@ input {
 	font-weight: 300;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 .btn {
 	padding: 5px;
 	width: 200px;
@@ -152,21 +157,46 @@ Styling for CVPreview
 Preview Header Styles 
 -------------------------------------------------------------*/
 .cv-preview-container .cv-preview-header {
-	background-color: gray;
+	background-color: #eff0ed;
 	display: flex;
-}
-
-.header-left,
-.header-right {
-	flex: 1;
+	border-top: 10px solid #4e4e50;
+	padding: 20px;
 }
 
 .cv-preview-header .header-left {
-	background-color: blue;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	flex: 3;
+}
+
+.header-left h1 {
+	font-size: 2rem;
+	font-weight: 300;
+}
+
+.header-left .personal-info-light {
+	font-weight: 300;
 }
 
 .cv-preview-header .header-right {
-	background-color: cadetblue;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	align-self: center;
+	gap: 5px;
+	flex: 2;
+}
+
+.header-right p {
+	display: flex;
+	font-weight: 300;
+	font-size: 1.2rem;
+}
+
+.header-right p .icon {
+	font-size: 1.5rem;
+	margin-right: 5px;
 }
 
 /* Media Queries */

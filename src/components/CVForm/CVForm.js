@@ -101,7 +101,8 @@ class CVForm extends React.Component {
 			userSkillInfo,
 			userProjectInfo,
 			handlePersonalInformationChange,
-			resetInformation
+			resetInformation,
+			removeUserLinks
 		} = this.props;
 
 		return (
@@ -110,6 +111,7 @@ class CVForm extends React.Component {
 				<PersonalInformation
 					userPersonalInfo={userPersonalInfo}
 					handlePersonalInformationChange={handlePersonalInformationChange}
+					removeUserLinks={removeUserLinks}
 				/>
 				{/* Education Section(s) */}
 				<h1>Education</h1>

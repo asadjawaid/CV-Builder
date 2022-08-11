@@ -25,6 +25,7 @@ class Container extends React.Component {
 
 		this.handlePersonalInformationChange = this.handlePersonalInformationChange.bind(this);
 		this.resetInformation = this.resetInformation.bind(this);
+		this.removeUserLinks = this.removeUserLinks.bind(this);
 	}
 
 	// function to update state for user personal information
@@ -53,6 +54,13 @@ class Container extends React.Component {
 		});
 	};
 
+	// used to remove links:
+	removeUserLinks = e => {
+		this.setState({
+			userPersonalInfo: { ...this.state.userPersonalInfo, linkedin: '', github: '', portfolio: '' }
+		});
+	};
+
 	render() {
 		const { userPersonalInfo, userEducationInfo, userExperienceInfo, userSkillInfo, userProjectInfo } = this.state;
 
@@ -66,6 +74,7 @@ class Container extends React.Component {
 					userProjectInfo={userProjectInfo}
 					handlePersonalInformationChange={this.handlePersonalInformationChange}
 					resetInformation={this.resetInformation}
+					removeUserLinks={this.removeUserLinks}
 				/>
 				<CVPreview
 					userPersonalInfo={userPersonalInfo}

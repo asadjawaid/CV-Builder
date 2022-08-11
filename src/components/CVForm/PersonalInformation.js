@@ -14,10 +14,13 @@ class PersonalInformation extends React.Component {
 
 	// updates the state of the showLink
 	toggleLinks = e => {
-		console.log('showing links');
 		this.setState({
 			showLinks: !this.state.showLinks
 		});
+
+		if (this.state.showLinks) {
+			this.props.removeUserLinks();
+		}
 	};
 
 	render() {
