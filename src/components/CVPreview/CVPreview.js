@@ -2,6 +2,7 @@
 /* eslint-disable no-useless-constructor */
 import React from 'react';
 import '../../styles/componentStyles.css';
+import { TbBrandLinkedin, TbBrandGithub, TbUser } from 'react-icons/tb';
 
 class CVPreview extends React.Component {
 	constructor(props) {
@@ -14,26 +15,71 @@ class CVPreview extends React.Component {
 		const { firstName, lastName, title, description, email, phoneNumber, linkedin, github, portfolio } =
 			userPersonalInfo;
 
+		// edit number for format:
+		if (phoneNumber) {
+			console.log(phoneNumber);
+		}
+
 		return (
 			<div className="cv-preview-container">
 				{/* Header */}
 				<div className="cv-preview-header">
 					<div className="header-left">
-						<h1>Title</h1>
-						<p>Name</p>
-						<p>Phone: (xxx) xxx-xxxx</p>
-						<p>Email: example@mail.com</p>
+						{/* Title */}
+						{!title ? <h1>TITLE</h1> : <h1>{title}</h1>}
+						{/* Name */}
+						{!firstName && !lastName ? (
+							<p>Name</p>
+						) : (
+							<p className="personal-info-light">
+								{firstName} {lastName}
+							</p>
+						)}
+						{/* Phone Number: */}
+						{!phoneNumber ? <p>Phone: (xxx) xxx-xxxx</p> : <p className="personal-info-light">{phoneNumber}</p>}
+						{/* Email */}
+						{!email ? (
+							<p>Email: example@example.com</p>
+						) : (
+							<p>
+								Email: <span className="personal-info-light">{email}</span>
+							</p>
+						)}
 					</div>
 					<div className="header-right">
-						<p>
-							<strong>LinkedIn</strong>:{' '}
-						</p>
-						<p>
-							<strong>GitHub</strong>:{' '}
-						</p>
-						<p>
-							<strong>Portfolio</strong>:{' '}
-						</p>
+						{/* Linkedin */}
+						{!linkedin ? (
+							<p>LinkedIn</p>
+						) : (
+							<p>
+								<TbBrandLinkedin className="icon" />
+								<a target="_blank" rel="noopener noreferrer" href={'https://www.linkedin.com/in/' + linkedin}>
+									{linkedin}
+								</a>
+							</p>
+						)}
+						{/* Github */}
+						{!github ? (
+							<p>Github</p>
+						) : (
+							<p>
+								<TbBrandGithub className="icon" />
+								<a target="_blank" rel="noopener noreferrer" href={'https://www.github.com/' + github}>
+									{github}
+								</a>
+							</p>
+						)}
+						{/* Portfolio */}
+						{!portfolio ? (
+							<></>
+						) : (
+							<p>
+								<TbUser className="icon" />
+								<a target="_blank" rel="noopener noreferrer" href={portfolio}>
+									{portfolio}
+								</a>
+							</p>
+						)}
 					</div>
 				</div>
 				{/* Section */}
