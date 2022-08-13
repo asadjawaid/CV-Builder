@@ -30,8 +30,6 @@ class Container extends React.Component {
 
 	// function to update state for user personal information
 	handlePersonalInformationChange = e => {
-		console.log(e.target.value);
-
 		this.setState({
 			userPersonalInfo: { ...this.state.userPersonalInfo, [e.target.name]: e.target.value }
 		});

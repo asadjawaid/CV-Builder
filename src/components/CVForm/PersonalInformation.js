@@ -105,11 +105,11 @@ class PersonalInformation extends React.Component {
 								maxLength={20}
 							/>
 							<input
-								type="url"
+								type="text"
 								value={portfolio}
 								name="portfolio"
 								onChange={handlePersonalInformationChange}
-								placeholder="Portfolio (https://yourwebsite.com)"
+								placeholder="Portfolio (format: example.com)"
 								maxLength={20}
 							/>
 							<button onClick={this.toggleLinks} className="btn remove-btn">
