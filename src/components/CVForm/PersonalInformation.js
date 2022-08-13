@@ -110,7 +110,7 @@ class PersonalInformation extends React.Component {
 								name="portfolio"
 								onChange={handlePersonalInformationChange}
 								placeholder="Portfolio (format: example.com)"
-								maxLength={20}
+								maxLength={50}
 							/>
 							<button onClick={this.toggleLinks} className="btn remove-btn">
 								Remove links <TbMinus className="icon minus-icon" />

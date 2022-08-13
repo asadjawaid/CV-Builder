@@ -75,7 +75,7 @@ class CVPreview extends React.Component {
 						) : (
 							<p>
 								<TbUser className="icon" />
-								<a target="_blank" rel="noopener noreferrer" href={portfolio}>
+								<a target="_blank" rel="noopener noreferrer" href={'https://' + portfolio}>
 									{portfolio}
 								</a>
 							</p>
