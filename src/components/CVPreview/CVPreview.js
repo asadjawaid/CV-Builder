@@ -3,7 +3,7 @@
 import React from 'react';
 import '../../styles/componentStyles.css';
 import { TbBrandLinkedin, TbBrandGithub, TbUser } from 'react-icons/tb';
-
+import ExperienceCV from './ExperienceCV';
 class CVPreview extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,21 +16,7 @@ class CVPreview extends React.Component {
 			userPersonalInfo;
 
 		// user experience
-		const { userExperienceInfo } = this.props;
-		// console.log(userExperienceInfo);
-		// user education
-		const { userEducationInfo } = this.props;
-
-		// user projects
-		const { userProjectInfo } = this.props;
-
-		// user skills
-		const { userSkillInfo } = this.props;
-
-		// edit number for format:
-		if (phoneNumber) {
-			console.log(phoneNumber);
-		}
+		const { userExperienceList } = this.props;
 
 		return (
 			<div className="cv-preview-container">
@@ -111,21 +97,31 @@ class CVPreview extends React.Component {
 				{/* Experience Section */}
 				<section className="cv-preview-experience">
 					<h1 className="cv-preview-header-text">Professional Experience</h1>
+					<hr></hr>
+					{userExperienceList.length <= 0 ? (
+						<p>No experience</p>
+					) : (
+						userExperienceList.map(currentExperience => (
+							<ExperienceCV key={currentExperience.id} currentExperience={currentExperience} />
+						))
+					)}
 				</section>
-				<hr></hr>
+
 				{/* Education section */}
 				<section className="cv-preview-education">
 					<h1 className="cv-preview-header-text">Education</h1>
+					<hr></hr>
 				</section>
-				<hr></hr>
+
 				{/* Project section */}
 				<section className="cv-preview-project">
 					<h1 className="cv-preview-header-text">Projects</h1>
+					<hr></hr>
 				</section>
-				<hr></hr>
 				{/* Skills section */}
 				<section className="cv-preview-skill">
 					<h1 className="cv-preview-header-text">Relevant Skills</h1>
+					<hr></hr>
 				</section>
 			</div>
 		);

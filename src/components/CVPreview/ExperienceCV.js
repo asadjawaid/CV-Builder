@@ -2,17 +2,35 @@ import React from 'react';
 
 class ExperienceCV extends React.Component {
 	render() {
+		const { currentExperience } = this.props;
+
+		const { id, position, company, location, from, to, responsibilities } = currentExperience;
+
+		// console.log(`responsibilities = ${responsibilities}`);
+
 		return (
-			<div>
-				<h1>Location</h1>
-				<section className="position-info">
-					<p>Position</p>
-					<p>Date</p>
-				</section>
-				<ul>
-					<li>Worked as a dev</li>
-					<li>Maintained the API</li>
-				</ul>
+			<div className="cv-preview-current-experience">
+				<p id="company-name">
+					{company ? company : 'Company'} / {location ? location : 'Location'}
+				</p>
+				<div className="position-info">
+					<p>{position ? position : 'Position'}</p>
+					{from ? (
+						<p>
+							{from} - {to ? to : 'Present'}
+						</p>
+					) : (
+						<p>Date</p>
+					)}
+				</div>
+				{!responsibilities ? (
+					<p className="responsibilities">Responsibilities</p>
+				) : (
+					<ul className="responsibilities">
+						<li>Hi</li>
+						<li>Hi</li>
+					</ul>
+				)}
 			</div>
 		);
 	}

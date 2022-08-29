@@ -89,6 +89,7 @@ class Container extends React.Component {
 			id: uniqid(),
 			position: '',
 			company: '',
+			location: '',
 			from: '',
 			to: '',
 			responsibilities: ''
@@ -110,7 +111,8 @@ class Container extends React.Component {
 
 	render() {
 		const { userPersonalInfo, userEducationInfo, userExperienceList, userSkillInfo, userProjectInfo } = this.state;
-		console.log(userExperienceList);
+		// console.log(userExperienceList);
+
 		// wrapping all functions into objects
 		const experienceInfo = {
 			addExperience: this.addNewExperience,
@@ -135,12 +137,7 @@ class Container extends React.Component {
 					experienceInfo={experienceInfo}
 					personalInfoFunctions={personalInfoFunctions}
 				/>
-				<CVPreview
-					userPersonalInfo={userPersonalInfo}
-					userEducationInfo={userEducationInfo}
-					userSkillInfo={userSkillInfo}
-					userProjectInfo={userProjectInfo}
-				/>
+				<CVPreview userPersonalInfo={userPersonalInfo} userExperienceList={userExperienceList} />
 			</div>
 		);
 	}

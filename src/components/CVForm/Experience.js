@@ -21,6 +21,14 @@ class Experience extends React.Component {
 						name="company"
 						placeholder="Company"
 						minLength={5}
+						maxLength={40}
+						onChange={e => handleExperienceInfo(e, experienceId)}
+					/>
+					<input
+						type="text"
+						name="location"
+						placeholder="Location"
+						minLength={5}
 						maxLength={30}
 						onChange={e => handleExperienceInfo(e, experienceId)}
 					/>
@@ -46,9 +54,6 @@ class Experience extends React.Component {
 						placeholder="Responsibilities"
 						onChange={e => handleExperienceInfo(e, experienceId)}
 					></textarea>
-					<button className="btn add-experience-btn" onClick={() => console.log('Adding experience')}>
-						Add Current Experience
-					</button>
 					<button onClick={() => deleteExperience(experienceId)} className="btn remove-btn">
 						Remove Experience <TbMinus className="icon minus-icon" />
 					</button>
