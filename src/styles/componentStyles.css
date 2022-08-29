@@ -156,10 +156,14 @@ Styling for CVPreview
 /*----------------------------------------------------------- 
 Preview Header Styles 
 -------------------------------------------------------------*/
+.cv-container .cv-preview-container {
+	background-color: white;
+}
+
 .cv-preview-container .cv-preview-header {
-	background-color: rgb(235, 235, 235);
+	background-color: #ececec;
 	display: flex;
-	border-top: 10px solid #4e4e50;
+	border-top: 10px solid #313131;
 	padding: 20px;
 }
 
