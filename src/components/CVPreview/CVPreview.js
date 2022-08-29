@@ -15,6 +15,18 @@ class CVPreview extends React.Component {
 		const { firstName, lastName, title, description, email, phoneNumber, linkedin, github, portfolio } =
 			userPersonalInfo;
 
+		// user experience
+		const { userExperienceInfo } = this.props;
+		// console.log(userExperienceInfo);
+		// user education
+		const { userEducationInfo } = this.props;
+
+		// user projects
+		const { userProjectInfo } = this.props;
+
+		// user skills
+		const { userSkillInfo } = this.props;
+
 		// edit number for format:
 		if (phoneNumber) {
 			console.log(phoneNumber);
@@ -49,7 +61,7 @@ class CVPreview extends React.Component {
 					<div className="header-right">
 						{/* Linkedin */}
 						{!linkedin ? (
-							<p>LinkedIn</p>
+							<p></p>
 						) : (
 							<p>
 								<TbBrandLinkedin className="icon" />
@@ -60,7 +72,7 @@ class CVPreview extends React.Component {
 						)}
 						{/* Github */}
 						{!github ? (
-							<p>Github</p>
+							<p></p>
 						) : (
 							<p>
 								<TbBrandGithub className="icon" />
@@ -96,13 +108,21 @@ class CVPreview extends React.Component {
 					)}
 				</div>
 				{/* Experience Section */}
-				<section className="cv-preview-experience"></section>
+				<section className="cv-preview-experience">
+					<h1 className="cv-preview-header-text">Professional Experience</h1>
+				</section>
 				{/* Education section */}
-				<section className="cv-preview-education"></section>
+				<section className="cv-preview-education">
+					<h1 className="cv-preview-header-text">Education</h1>
+				</section>
 				{/* Project section */}
-				<section className="cv-preview-project"></section>
+				<section className="cv-preview-project">
+					<h1 className="cv-preview-header-text">Projects</h1>
+				</section>
 				{/* Skills section */}
-				<section className="cv-preview-skill"></section>
+				<section className="cv-preview-skill">
+					<h1 className="cv-preview-header-text">Relevant Skills</h1>
+				</section>
 			</div>
 		);
 	}

@@ -14,17 +14,12 @@ class CVForm extends React.Component {
 		super(props);
 		this.state = {
 			educationArray: [],
-			experienceArray: [],
 			projectArray: []
 		};
 
 		// for add/removing an education
 		this.addNewEducation = this.addNewEducation.bind(this);
 		this.deleteEducation = this.deleteEducation.bind(this);
-
-		// for add/removing an experience
-		this.addNewExperience = this.addNewExperience.bind(this);
-		this.deleteExperience = this.deleteExperience.bind(this);
 
 		// for add/removing a project
 		this.addNewProject = this.addNewProject.bind(this);
@@ -54,22 +49,6 @@ class CVForm extends React.Component {
 		});
 	}
 
-	// add new experience
-	addNewExperience() {
-		this.setState({
-			experienceArray: this.state.experienceArray.concat({ id: uniqid() })
-		});
-	}
-
-	// remove experience
-	deleteExperience(id) {
-		const experienceSectionUpdate = this.state.experienceArray.filter(current => current.id !== id);
-
-		this.setState({
-			experienceArray: experienceSectionUpdate
-		});
-	}
-
 	// add a new project
 	addNewProject() {
 		this.setState({
@@ -93,26 +72,43 @@ class CVForm extends React.Component {
 	deleteSkill() {}
 
 	render() {
-		const { educationArray, experienceArray, projectArray } = this.state;
+		const { educationArray, projectArray } = this.state;
+
 		const {
 			userPersonalInfo,
 			userEducationInfo,
-			userExperienceInfo,
-			userSkillInfo,
+			// userSkillInfo,
 			userProjectInfo,
-			handlePersonalInformationChange,
 			resetInformation,
-			removeUserLinks
+			personalInfoFunctions,
+			experienceInfo
 		} = this.props;
+
+		const { addExperience, removeExperience, userExperienceList, handleExperienceInfo } = experienceInfo;
 
 		return (
 			<div className="cv-form-container">
 				<h1>Personal Information</h1>
 				<PersonalInformation
 					userPersonalInfo={userPersonalInfo}
-					handlePersonalInformationChange={handlePersonalInformationChange}
-					removeUserLinks={removeUserLinks}
+					handlePersonalInformationChange={personalInfoFunctions.handlePersonalInformationChange}
+					removeUserLinks={personalInfoFunctions.removeUserLinks}
 				/>
+
+				{/* Experience Section(s) */}
+				<h1>Experience</h1>
+				{userExperienceList.map(currentExperience => (
+					<Experience
+						handleExperienceInfo={handleExperienceInfo}
+						key={currentExperience.id}
+						deleteExperience={removeExperience}
+						experienceId={currentExperience.id}
+					/>
+				))}
+				<button className="btn add-edu-btn" onClick={addExperience} disabled={userExperienceList.length > 3}>
+					Add Experience <TbPlus className="icon" />
+				</button>
+
 				{/* Education Section(s) */}
 				<h1>Education</h1>
 				{educationArray.map(currentEducation => (
@@ -125,20 +121,6 @@ class CVForm extends React.Component {
 				))}
 				<button className="btn add-edu-btn" onClick={this.addNewEducation} disabled={educationArray.length > 3}>
 					Add Education <TbPlus className="icon" />
-				</button>
-
-				{/* Experience Section(s) */}
-				<h1>Experience</h1>
-				{experienceArray.map(currentExperience => (
-					<Experience
-						userExperienceInfo={userExperienceInfo}
-						key={currentExperience.id}
-						deleteExperience={this.deleteExperience}
-						experienceId={currentExperience.id}
-					/>
-				))}
-				<button className="btn add-edu-btn" onClick={this.addNewExperience} disabled={experienceArray.length > 3}>
-					Add Experience <TbPlus className="icon" />
 				</button>
 
 				{/* Project Section(s) */}

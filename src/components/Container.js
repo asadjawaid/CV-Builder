@@ -1,6 +1,7 @@
 import React from 'react';
 import CVForm from './CVForm/CVForm';
 import CVPreview from './CVPreview/CVPreview';
+import uniqid from 'uniqid';
 
 class Container extends React.Component {
 	constructor(props) {
@@ -17,15 +18,20 @@ class Container extends React.Component {
 				github: '',
 				portfolio: ''
 			},
-			userEducationInfo: [],
-			userExperienceInfo: [],
-			userSkillInfo: [],
-			userProjectInfo: []
+			userEducationList: [],
+			userExperienceList: [],
+			userSkillList: [],
+			userProjectList: []
 		};
 
 		this.handlePersonalInformationChange = this.handlePersonalInformationChange.bind(this);
 		this.resetInformation = this.resetInformation.bind(this);
 		this.removeUserLinks = this.removeUserLinks.bind(this);
+
+		// user experience functions:
+		this.handleExperienceInfo = this.handleExperienceInfo.bind(this);
+		this.addNewExperience = this.addNewExperience.bind(this);
+		this.removeExperience = this.removeExperience.bind(this);
 	}
 
 	// function to update state for user personal information
@@ -48,7 +54,11 @@ class Container extends React.Component {
 				linkedin: '',
 				github: '',
 				portfolio: ''
-			}
+			},
+			userEducationList: [],
+			userExperienceList: [],
+			userSkillList: [],
+			userProjectList: []
 		});
 	};
 
@@ -59,25 +69,75 @@ class Container extends React.Component {
 		});
 	};
 
+	// for handling experience input fields:
+	handleExperienceInfo = (e, id) => {
+		const updateUserExperienceList = this.state.userExperienceList.map(current => {
+			if (current.id === id) {
+				return { ...current, [e.target.name]: e.target.value };
+			}
+			return current;
+		});
+
+		this.setState({
+			userExperienceList: updateUserExperienceList
+		});
+	};
+
+	// add a new experience:
+	addNewExperience = e => {
+		const newExperience = {
+			id: uniqid(),
+			position: '',
+			company: '',
+			from: '',
+			to: '',
+			responsibilities: ''
+		};
+
+		this.setState({
+			userExperienceList: this.state.userExperienceList.concat(newExperience)
+		});
+	};
+
+	// remove experience:
+	removeExperience = id => {
+		const experienceListUpdate = this.state.userExperienceList.filter(current => current.id !== id);
+
+		this.setState({
+			userExperienceList: experienceListUpdate
+		});
+	};
+
 	render() {
-		const { userPersonalInfo, userEducationInfo, userExperienceInfo, userSkillInfo, userProjectInfo } = this.state;
+		const { userPersonalInfo, userEducationInfo, userExperienceList, userSkillInfo, userProjectInfo } = this.state;
+		console.log(userExperienceList);
+		// wrapping all functions into objects
+		const experienceInfo = {
+			addExperience: this.addNewExperience,
+			removeExperience: this.removeExperience,
+			userExperienceList: userExperienceList,
+			handleExperienceInfo: this.handleExperienceInfo
+		};
+
+		const personalInfoFunctions = {
+			handlePersonalInformationChange: this.handlePersonalInformationChange,
+			removeUserLinks: this.removeUserLinks
+		};
 
 		return (
 			<div className={this.props.nameOfClass}>
 				<CVForm
 					userPersonalInfo={userPersonalInfo}
 					userEducationInfo={userEducationInfo}
-					userExperienceInfo={userExperienceInfo}
 					userSkillInfo={userSkillInfo}
 					userProjectInfo={userProjectInfo}
-					handlePersonalInformationChange={this.handlePersonalInformationChange}
 					resetInformation={this.resetInformation}
-					removeUserLinks={this.removeUserLinks}
+					experienceInfo={experienceInfo}
+					personalInfoFunctions={personalInfoFunctions}
 				/>
 				<CVPreview
 					userPersonalInfo={userPersonalInfo}
 					userEducationInfo={userEducationInfo}
-					userExperienceInfo={userExperienceInfo}
 					userSkillInfo={userSkillInfo}
 					userProjectInfo={userProjectInfo}
 				/>
