@@ -107,18 +107,22 @@ class CVPreview extends React.Component {
 						<p>{description}</p>
 					)}
 				</div>
+
 				{/* Experience Section */}
 				<section className="cv-preview-experience">
 					<h1 className="cv-preview-header-text">Professional Experience</h1>
 				</section>
+				<hr></hr>
 				{/* Education section */}
 				<section className="cv-preview-education">
 					<h1 className="cv-preview-header-text">Education</h1>
 				</section>
+				<hr></hr>
 				{/* Project section */}
 				<section className="cv-preview-project">
 					<h1 className="cv-preview-header-text">Projects</h1>
 				</section>
+				<hr></hr>
 				{/* Skills section */}
 				<section className="cv-preview-skill">
 					<h1 className="cv-preview-header-text">Relevant Skills</h1>
