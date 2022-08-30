@@ -37,6 +37,11 @@ class Container extends React.Component {
 		this.handleEducationInfo = this.handleEducationInfo.bind(this);
 		this.addNewEducation = this.addNewEducation.bind(this);
 		this.removeEducation = this.removeEducation.bind(this);
+
+		// project functions
+		this.handleProjectInfo = this.handleProjectInfo.bind(this);
+		this.addNewProject = this.addNewProject.bind(this);
+		this.removeProject = this.removeProject.bind(this);
 	}
 
 	// function to update state for user personal information
@@ -153,10 +158,45 @@ class Container extends React.Component {
 		});
 	};
 
-	render() {
-		const { userPersonalInfo, userEducationList, userExperienceList, userSkillInfo, userProjectInfo } = this.state;
+	// handle input for project form
+	handleProjectInfo = (e, id) => {
+		const updateUserProjectList = this.state.userProjectList.map(current => {
+			if (current.id === id) {
+				return { ...current, [e.target.name]: e.target.value };
+			}
+			return current;
+		});
 
-		console.log(userEducationList);
+		this.setState({
+			userProjectList: updateUserProjectList
+		});
+	};
+
+	// add new project function
+	addNewProject = e => {
+		const newProject = {
+			id: uniqid(),
+			projectName: '',
+			description: ''
+		};
+
+		this.setState({
+			userProjectList: this.state.userProjectList.concat(newProject)
+		});
+	};
+
+	// remove any project from the list
+	removeProject = id => {
+		const projectListUpdate = this.state.userProjectList.filter(current => current.id !== id);
+		this.setState({
+			userProjectList: projectListUpdate
+		});
+	};
+
+	render() {
+		const { userPersonalInfo, userEducationList, userExperienceList, userSkillList, userProjectList } = this.state;
+
+		// console.log(userProjectList);
 
 		// wrapping all functions into objects
 		const experienceInfo = {
@@ -174,6 +214,14 @@ class Container extends React.Component {
 			handleEducationInfo: this.handleEducationInfo
 		};
 
+		// wrap all project related functions
+		const projectInfo = {
+			addNewProject: this.addNewProject,
+			removeProject: this.removeProject,
+			userProjectList: userProjectList,
+			handleProjectInfo: this.handleProjectInfo
+		};
+
 		const personalInfoFunctions = {
 			handlePersonalInformationChange: this.handlePersonalInformationChange,
 			removeUserLinks: this.removeUserLinks
@@ -183,11 +231,10 @@ class Container extends React.Component {
 			<div className={this.props.nameOfClass}>
 				<CVForm
 					userPersonalInfo={userPersonalInfo}
-					userSkillInfo={userSkillInfo}
-					userProjectInfo={userProjectInfo}
 					resetInformation={this.resetInformation}
 					experienceInfo={experienceInfo}
 					educationInfo={educationInfo}
+					projectInfo={projectInfo}
 					personalInfoFunctions={personalInfoFunctions}
 				/>
 				<CVPreview userPersonalInfo={userPersonalInfo} userExperienceList={userExperienceList} />

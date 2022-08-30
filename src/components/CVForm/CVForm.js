@@ -5,7 +5,6 @@ import PersonalInformation from './PersonalInformation';
 import Education from './Education';
 import Experience from './Experience';
 import Project from './Project';
-// import Skill from './Skill';
 import { TbPlus } from 'react-icons/tb';
 import uniqid from 'uniqid';
 
@@ -15,12 +14,17 @@ class CVForm extends React.Component {
 	}
 
 	render() {
-		const { userPersonalInfo, educationInfo, resetInformation, personalInfoFunctions, experienceInfo } = this.props;
+		const { userPersonalInfo, educationInfo, resetInformation, personalInfoFunctions, experienceInfo, projectInfo } =
+			this.props;
 
 		// get functions and objects from experienceInfo object
 		const { addExperience, removeExperience, userExperienceList, handleExperienceInfo } = experienceInfo;
+
 		// get functions and objects from educationInfo object
 		const { addNewEducation, removeEducation, userEducationList, handleEducationInfo } = educationInfo;
+
+		// get functions and objects from projectInfo object
+		const { addNewProject, removeProject, userProjectList, handleProjectInfo } = projectInfo;
 
 		return (
 			<div className="cv-form-container">
@@ -61,17 +65,17 @@ class CVForm extends React.Component {
 
 				{/* Project Section(s) */}
 				<h1>Projects</h1>
-				{/* {projectArray.map(currentProject => (
+				{userProjectList.map(currentProject => (
 					<Project
-						userProjectInfo={userProjectInfo}
-						key={currentProject.projectId}
-						deleteProject={this.deleteProject}
-						projectId={currentProject.projectId}
+						handleProjectInfo={handleProjectInfo}
+						key={currentProject.id}
+						removeProject={removeProject}
+						projectId={currentProject.id}
 					/>
 				))}
-				<button className="btn add-edu-btn" onClick={this.addNewProject} disabled={projectArray.length > 2}>
+				<button className="btn add-edu-btn" onClick={addNewProject} disabled={userProjectList.length > 2}>
 					Add Project <TbPlus className="icon" />
-				</button> */}
+				</button>
 
 				{/* Skills section */}
 				<h1>Skills and Achievements</h1>
