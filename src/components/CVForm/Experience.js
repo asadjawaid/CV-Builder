@@ -29,7 +29,7 @@ class Experience extends React.Component {
 						name="location"
 						placeholder="Location"
 						minLength={5}
-						maxLength={30}
+						maxLength={45}
 						onChange={e => handleExperienceInfo(e, experienceId)}
 					/>
 					<input

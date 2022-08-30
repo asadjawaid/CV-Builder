@@ -105,7 +105,7 @@ class CVForm extends React.Component {
 						experienceId={currentExperience.id}
 					/>
 				))}
-				<button className="btn add-edu-btn" onClick={addExperience} disabled={userExperienceList.length > 3}>
+				<button className="btn add-edu-btn" onClick={addExperience} disabled={userExperienceList.length > 2}>
 					Add Experience <TbPlus className="icon" />
 				</button>
 
