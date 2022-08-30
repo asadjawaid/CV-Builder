@@ -99,7 +99,7 @@ class CVPreview extends React.Component {
 					<h1 className="cv-preview-header-text">Professional Experience</h1>
 					<hr></hr>
 					{userExperienceList.length <= 0 ? (
-						<p>No experience</p>
+						<p id="no-experience">No experience added</p>
 					) : (
 						userExperienceList.map(currentExperience => (
 							<ExperienceCV key={currentExperience.id} currentExperience={currentExperience} />

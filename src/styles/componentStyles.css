@@ -212,7 +212,6 @@ Preview Header Styles
 
 .cv-preview-description {
 	margin: 15px 0;
-	background-color: yellow;
 	font-weight: 200;
 	color: #06283d;
 }
@@ -225,7 +224,7 @@ Preview Header Styles
 
 .cv-preview-experience #no-experience {
 	/* background-color: lightgrey; */
-	margin-bottom: 10px;
+	margin-bottom: 3px;
 	font-weight: lighter;
 	text-transform: uppercase;
 }
@@ -244,6 +243,11 @@ Preview Header Styles
 
 .cv-preview-current-experience #company-name {
 	text-transform: uppercase;
+}
+
+#company-location {
+	font-weight: 300;
+	text-transform: initial;
 }
 
 .cv-preview-current-experience .position-info {

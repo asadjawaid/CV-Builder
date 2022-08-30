@@ -11,7 +11,7 @@ class ExperienceCV extends React.Component {
 		return (
 			<div className="cv-preview-current-experience">
 				<p id="company-name">
-					{company ? company : 'Company'} / {location ? location : 'Location'}
+					{company ? company : 'Company'} <span id="company-location"> - {location ? location : 'Location'}</span>
 				</p>
 				<div className="position-info">
 					<p>{position ? position : 'Position'}</p>
