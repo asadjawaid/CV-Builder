@@ -6,7 +6,6 @@ import Education from './Education';
 import Experience from './Experience';
 import Project from './Project';
 import { TbPlus } from 'react-icons/tb';
-import uniqid from 'uniqid';
 
 class CVForm extends React.Component {
 	constructor(props) {
@@ -59,7 +58,7 @@ class CVForm extends React.Component {
 						educationId={currentEducation.id}
 					/>
 				))}
-				<button className="btn add-edu-btn" onClick={addNewEducation} disabled={userEducationList.length > 2}>
+				<button className="btn add-edu-btn" onClick={addNewEducation} disabled={userEducationList.length > 1}>
 					Add Education <TbPlus className="icon" />
 				</button>
 

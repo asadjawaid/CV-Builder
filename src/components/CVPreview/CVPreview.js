@@ -4,19 +4,18 @@ import React from 'react';
 import '../../styles/componentStyles.css';
 import { TbBrandLinkedin, TbBrandGithub, TbUser } from 'react-icons/tb';
 import ExperienceCV from './ExperienceCV';
+import ProjectCV from './ProjectCV';
+import EducationCV from './EducationCV';
 class CVPreview extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
-		// user personal information:
-		const { userPersonalInfo } = this.props;
+		// get personal information, experience list, project list :
+		const { userPersonalInfo, userExperienceList, userProjectList, userEducationList } = this.props;
 		const { firstName, lastName, title, description, email, phoneNumber, linkedin, github, portfolio } =
 			userPersonalInfo;
-
-		// user experience
-		const { userExperienceList } = this.props;
 
 		return (
 			<div className="cv-preview-container">
@@ -99,7 +98,7 @@ class CVPreview extends React.Component {
 					<h1 className="cv-preview-header-text">Professional Experience</h1>
 					<hr></hr>
 					{userExperienceList.length <= 0 ? (
-						<p id="no-experience">No experience added</p>
+						<p className="no-info">No experience added</p>
 					) : (
 						userExperienceList.map(currentExperience => (
 							<ExperienceCV key={currentExperience.id} currentExperience={currentExperience} />
@@ -111,12 +110,24 @@ class CVPreview extends React.Component {
 				<section className="cv-preview-education">
 					<h1 className="cv-preview-header-text">Education</h1>
 					<hr></hr>
+					{userEducationList.length <= 0 ? (
+						<p className="no-info">No education added</p>
+					) : (
+						userEducationList.map(currentEducation => (
+							<EducationCV key={currentEducation.id} currentEducation={currentEducation} />
+						))
+					)}
 				</section>
 
 				{/* Project section */}
 				<section className="cv-preview-project">
 					<h1 className="cv-preview-header-text">Projects</h1>
 					<hr></hr>
+					{userProjectList.length <= 0 ? (
+						<p className="no-info">No project added</p>
+					) : (
+						userProjectList.map(currentProject => <ProjectCV key={currentProject.id} currentProject={currentProject} />)
+					)}
 				</section>
 				{/* Skills section */}
 				<section className="cv-preview-skill">

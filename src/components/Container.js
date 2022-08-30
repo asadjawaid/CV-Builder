@@ -196,8 +196,6 @@ class Container extends React.Component {
 	render() {
 		const { userPersonalInfo, userEducationList, userExperienceList, userSkillList, userProjectList } = this.state;
 
-		// console.log(userProjectList);
-
 		// wrapping all functions into objects
 		const experienceInfo = {
 			addExperience: this.addNewExperience,
@@ -237,7 +235,12 @@ class Container extends React.Component {
 					projectInfo={projectInfo}
 					personalInfoFunctions={personalInfoFunctions}
 				/>
-				<CVPreview userPersonalInfo={userPersonalInfo} userExperienceList={userExperienceList} />
+				<CVPreview
+					userPersonalInfo={userPersonalInfo}
+					userExperienceList={userExperienceList}
+					userProjectList={userProjectList}
+					userEducationList={userEducationList}
+				/>
 			</div>
 		);
 	}
