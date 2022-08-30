@@ -12,79 +12,15 @@ import uniqid from 'uniqid';
 class CVForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			educationArray: [],
-			projectArray: []
-		};
-
-		// for add/removing an education
-		this.addNewEducation = this.addNewEducation.bind(this);
-		this.deleteEducation = this.deleteEducation.bind(this);
-
-		// for add/removing a project
-		this.addNewProject = this.addNewProject.bind(this);
-		this.deleteProject = this.deleteProject.bind(this);
-
-		// for add/removing a skill
-		this.addNewSkill = this.addNewSkill.bind(this);
-		this.deleteSkill = this.deleteSkill.bind(this);
 	}
-
-	// add a new education
-	addNewEducation() {
-		this.setState({
-			educationArray: this.state.educationArray.concat({
-				id: uniqid()
-			})
-		});
-	}
-
-	// remove the education with id
-	deleteEducation(id) {
-		console.log(`Deleting education with id ${id}`);
-		const educationSectionUpdate = this.state.educationArray.filter(current => current.id !== id);
-
-		this.setState({
-			educationArray: educationSectionUpdate
-		});
-	}
-
-	// add a new project
-	addNewProject() {
-		this.setState({
-			projectArray: this.state.projectArray.concat({ projectId: uniqid() })
-		});
-	}
-
-	// remove a new project
-	deleteProject(id) {
-		const projectSectionUpdate = this.state.projectArray.filter(current => current.projectId !== id);
-
-		this.setState({
-			projectArray: projectSectionUpdate
-		});
-	}
-
-	// for adding a new skill
-	addNewSkill() {}
-
-	// for removing a skills section
-	deleteSkill() {}
 
 	render() {
-		const { educationArray, projectArray } = this.state;
+		const { userPersonalInfo, educationInfo, resetInformation, personalInfoFunctions, experienceInfo } = this.props;
 
-		const {
-			userPersonalInfo,
-			userEducationInfo,
-			// userSkillInfo,
-			userProjectInfo,
-			resetInformation,
-			personalInfoFunctions,
-			experienceInfo
-		} = this.props;
-
+		// get functions and objects from experienceInfo object
 		const { addExperience, removeExperience, userExperienceList, handleExperienceInfo } = experienceInfo;
+		// get functions and objects from educationInfo object
+		const { addNewEducation, removeEducation, userEducationList, handleEducationInfo } = educationInfo;
 
 		return (
 			<div className="cv-form-container">
@@ -111,21 +47,21 @@ class CVForm extends React.Component {
 
 				{/* Education Section(s) */}
 				<h1>Education</h1>
-				{educationArray.map(currentEducation => (
+				{userEducationList.map(currentEducation => (
 					<Education
-						userEducationInfo={userEducationInfo}
+						handleEducationInfo={handleEducationInfo}
 						key={currentEducation.id}
-						deleteEducation={this.deleteEducation}
+						removeEducation={removeEducation}
 						educationId={currentEducation.id}
 					/>
 				))}
-				<button className="btn add-edu-btn" onClick={this.addNewEducation} disabled={educationArray.length > 3}>
+				<button className="btn add-edu-btn" onClick={addNewEducation} disabled={userEducationList.length > 2}>
 					Add Education <TbPlus className="icon" />
 				</button>
 
 				{/* Project Section(s) */}
 				<h1>Projects</h1>
-				{projectArray.map(currentProject => (
+				{/* {projectArray.map(currentProject => (
 					<Project
 						userProjectInfo={userProjectInfo}
 						key={currentProject.projectId}
@@ -135,7 +71,7 @@ class CVForm extends React.Component {
 				))}
 				<button className="btn add-edu-btn" onClick={this.addNewProject} disabled={projectArray.length > 2}>
 					Add Project <TbPlus className="icon" />
-				</button>
+				</button> */}
 
 				{/* Skills section */}
 				<h1>Skills and Achievements</h1>

@@ -32,6 +32,11 @@ class Container extends React.Component {
 		this.handleExperienceInfo = this.handleExperienceInfo.bind(this);
 		this.addNewExperience = this.addNewExperience.bind(this);
 		this.removeExperience = this.removeExperience.bind(this);
+
+		// education functions
+		this.handleEducationInfo = this.handleEducationInfo.bind(this);
+		this.addNewEducation = this.addNewEducation.bind(this);
+		this.removeEducation = this.removeEducation.bind(this);
 	}
 
 	// function to update state for user personal information
@@ -109,9 +114,49 @@ class Container extends React.Component {
 		});
 	};
 
+	// handle input for education form
+	handleEducationInfo = (e, id) => {
+		const updateUserEducationList = this.state.userEducationList.map(current => {
+			if (current.id === id) {
+				return { ...current, [e.target.name]: e.target.value };
+			}
+			return current;
+		});
+
+		this.setState({
+			userEducationList: updateUserEducationList
+		});
+	};
+
+	// add new education
+	addNewEducation = e => {
+		const newEducation = {
+			id: uniqid(),
+			school: '',
+			major: '',
+			from: '',
+			to: '',
+			gpa: ''
+		};
+
+		this.setState({
+			userEducationList: this.state.userEducationList.concat(newEducation)
+		});
+	};
+
+	// remove education
+	removeEducation = id => {
+		const educationListUpdate = this.state.userEducationList.filter(current => current.id !== id);
+
+		this.setState({
+			userExperienceList: educationListUpdate
+		});
+	};
+
 	render() {
-		const { userPersonalInfo, userEducationInfo, userExperienceList, userSkillInfo, userProjectInfo } = this.state;
-		// console.log(userExperienceList);
+		const { userPersonalInfo, userEducationList, userExperienceList, userSkillInfo, userProjectInfo } = this.state;
+
+		console.log(userEducationList);
 
 		// wrapping all functions into objects
 		const experienceInfo = {
@@ -119,6 +164,14 @@ class Container extends React.Component {
 			removeExperience: this.removeExperience,
 			userExperienceList: userExperienceList,
 			handleExperienceInfo: this.handleExperienceInfo
+		};
+
+		// wrap all education related function
+		const educationInfo = {
+			addNewEducation: this.addNewEducation,
+			removeEducation: this.removeEducation,
+			userEducationList: userEducationList,
+			handleEducationInfo: this.handleEducationInfo
 		};
 
 		const personalInfoFunctions = {
@@ -130,11 +183,11 @@ class Container extends React.Component {
 			<div className={this.props.nameOfClass}>
 				<CVForm
 					userPersonalInfo={userPersonalInfo}
-					userEducationInfo={userEducationInfo}
 					userSkillInfo={userSkillInfo}
 					userProjectInfo={userProjectInfo}
 					resetInformation={this.resetInformation}
 					experienceInfo={experienceInfo}
+					educationInfo={educationInfo}
 					personalInfoFunctions={personalInfoFunctions}
 				/>
 				<CVPreview userPersonalInfo={userPersonalInfo} userExperienceList={userExperienceList} />
