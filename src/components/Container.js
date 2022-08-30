@@ -149,7 +149,7 @@ class Container extends React.Component {
 		const educationListUpdate = this.state.userEducationList.filter(current => current.id !== id);
 
 		this.setState({
-			userExperienceList: educationListUpdate
+			userEducationList: educationListUpdate
 		});
 	};
 
