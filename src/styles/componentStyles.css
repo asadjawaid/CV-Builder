@@ -32,6 +32,13 @@ a {
 	cursor: pointer;
 }
 
+hr {
+	margin: 5px 0;
+	padding: 0.5px;
+	background-color: #313131;
+	border: none;
+}
+
 /* end utility */
 
 :root {
@@ -214,6 +221,39 @@ Preview Header Styles
 	text-transform: uppercase;
 	font-size: 1em;
 	font-weight: 500;
+}
+
+.cv-preview-experience #no-experience {
+	/* background-color: lightgrey; */
+	margin-bottom: 10px;
+	font-weight: lighter;
+	text-transform: uppercase;
+}
+
+.cv-preview-experience .cv-preview-current-experience {
+	/* background-color: lightcoral; */
+	padding: 3px 20px;
+	margin-bottom: 10px;
+}
+
+#company-name,
+.position-info,
+.responsibilities {
+	margin-bottom: 5px;
+}
+
+.cv-preview-current-experience #company-name {
+	text-transform: uppercase;
+}
+
+.cv-preview-current-experience .position-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+.position-info p {
+	font-weight: lighter;
+	font-style: italic;
 }
 
 /* Media Queries */
