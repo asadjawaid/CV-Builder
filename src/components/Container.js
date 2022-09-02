@@ -139,9 +139,11 @@ class Container extends React.Component {
 			id: uniqid(),
 			school: '',
 			major: '',
+			minor: '',
 			from: '',
 			to: '',
-			gpa: ''
+			gpa: '',
+			description: ''
 		};
 
 		this.setState({

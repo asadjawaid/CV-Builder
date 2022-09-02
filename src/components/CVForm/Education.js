@@ -35,7 +35,7 @@ class Education extends React.Component {
 						name="minor"
 						placeholder="Minor"
 						minLength={5}
-						maxLength={50}
+						maxLength={70}
 						onChange={e => handleEducationInfo(e, educationId)}
 					/>
 					<input
@@ -63,7 +63,13 @@ class Education extends React.Component {
 						max={4}
 						onChange={e => handleEducationInfo(e, educationId)}
 					/>
-					<textarea name="description" rows={5} placeholder="Description"></textarea>
+					<textarea
+						name="description"
+						rows={5}
+						placeholder="Description"
+						onChange={e => handleEducationInfo(e, educationId)}
+						maxLength={300}
+					></textarea>
 					<button onClick={() => removeEducation(educationId)} className="btn remove-btn">
 						Remove Education <TbMinus className="icon minus-icon" />
 					</button>

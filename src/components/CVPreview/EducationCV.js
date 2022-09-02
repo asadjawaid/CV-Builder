@@ -3,21 +3,26 @@ import React from 'react';
 export default class EducationCV extends React.Component {
 	render() {
 		const { currentEducation } = this.props;
-		const { id, school, major, from, to, gpa } = currentEducation;
+		const { school, major, minor, from, to, gpa, description } = currentEducation;
 		return (
-			<div>
-				<div>
+			<div className="education-cv-preview">
+				<div className="school-info">
 					<p>{school ? school : 'School'}</p>
 					{from ? (
-						<p>
+						<p id="education-date">
 							{from} - {to ? to : 'Present'}
 						</p>
 					) : (
-						<p>Date</p>
+						<p id="date-info">Date</p>
 					)}
 				</div>
-				<p>{major ? major : 'Major'}</p>
-				<p>{gpa ? gpa : 'GPA'}</p>
+				<p id="major-info">
+					{major ? major : 'Major'} (<span>{gpa ? 'Major GPA: ' + gpa : 'GPA'})</span>
+				</p>
+				{minor ? <p id="minor-info">- {minor}</p> : <></>}
+				<p id="description-info">
+					- {description ? 'Course work/Description: ' + description : 'Description/Course Work'}
+				</p>
 			</div>
 		);
 	}

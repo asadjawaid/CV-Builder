@@ -218,7 +218,7 @@ Preview Header Styles
 }
 
 .cv-preview-description {
-	margin: 15px 0;
+	margin: 10px 0;
 	font-weight: 200;
 	color: #06283d;
 }
@@ -230,9 +230,7 @@ Preview Header Styles
 }
 
 .cv-preview-experience .cv-preview-current-experience {
-	/* background-color: lightcoral; */
-	padding: 3px 20px;
-	margin-bottom: 10px;
+	padding: 3px 15px;
 }
 
 #company-name,
@@ -259,6 +257,42 @@ Preview Header Styles
 	font-weight: lighter;
 	font-style: italic;
 }
+
+/* Education preview css */
+.education-cv-preview {
+	/* background-color: blue; */
+	padding: 0px 15px;
+	margin-bottom: 10px;
+}
+
+.education-cv-preview * {
+	margin-bottom: 3px;
+}
+
+.education-cv-preview .school-info {
+	/* background-color: green; */
+	display: flex;
+	justify-content: space-between;
+}
+
+.education-cv-preview .school-info * {
+	margin-bottom: 0;
+}
+
+#minor-info,
+#description-info {
+	padding-left: 5px;
+	font-size: 14px;
+	font-weight: lighter;
+}
+
+#education-date,
+#major-info,
+#date-info {
+	font-style: italic;
+	font-weight: lighter;
+}
+/* Project preview css */
 
 /* Media Queries */
 /* Extra small devices (phones, 600px and down) */
