@@ -27,6 +27,14 @@ class Education extends React.Component {
 						name="major"
 						placeholder="Major"
 						minLength={15}
+						maxLength={70}
+						onChange={e => handleEducationInfo(e, educationId)}
+					/>
+					<input
+						type="text"
+						name="minor"
+						placeholder="Minor"
+						minLength={5}
 						maxLength={50}
 						onChange={e => handleEducationInfo(e, educationId)}
 					/>
