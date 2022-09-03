@@ -40,7 +40,6 @@ hr {
 }
 
 .no-info {
-	/* background-color: lightgrey; */
 	margin-bottom: 3px;
 	font-weight: lighter;
 	text-transform: uppercase;
@@ -165,20 +164,18 @@ Styling for CVPreview
 	top: 20px;
 	height: 100vh;
 	padding: 20px;
+	background-color: white;
 }
 
 /*----------------------------------------------------------- 
 Preview Header Styles 
 -------------------------------------------------------------*/
-.cv-container .cv-preview-container {
-	background-color: white;
-}
-
 .cv-preview-container .cv-preview-header {
 	background-color: #ececec;
 	display: flex;
 	border-top: 10px solid #313131;
 	padding: 20px;
+	margin-bottom: 10px;
 }
 
 .cv-preview-header .header-left {
@@ -217,12 +214,6 @@ Preview Header Styles
 	margin-right: 5px;
 }
 
-.cv-preview-description {
-	margin: 10px 0;
-	font-weight: 200;
-	color: #06283d;
-}
-
 .cv-preview-header-text {
 	text-transform: uppercase;
 	font-size: 1em;
@@ -259,10 +250,10 @@ Preview Header Styles
 }
 
 /* Education preview css */
-.education-cv-preview {
+.common-class {
 	/* background-color: blue; */
 	padding: 0px 15px;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .education-cv-preview * {
@@ -270,7 +261,6 @@ Preview Header Styles
 }
 
 .education-cv-preview .school-info {
-	/* background-color: green; */
 	display: flex;
 	justify-content: space-between;
 }
@@ -293,6 +283,9 @@ Preview Header Styles
 	font-weight: lighter;
 }
 /* Project preview css */
+#project-description-preview {
+	font-weight: lighter;
+}
 
 /* Media Queries */
 /* Extra small devices (phones, 600px and down) */
