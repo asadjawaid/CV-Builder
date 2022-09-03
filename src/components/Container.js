@@ -58,7 +58,6 @@ class Container extends React.Component {
 				firstName: '',
 				lastName: '',
 				title: '',
-				description: '',
 				email: '',
 				phoneNumber: '',
 				linkedin: '',

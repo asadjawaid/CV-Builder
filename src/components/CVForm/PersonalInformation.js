@@ -27,8 +27,7 @@ class PersonalInformation extends React.Component {
 		// get the props values:
 		const { userPersonalInfo, handlePersonalInformationChange } = this.props;
 		const { showLinks } = this.state;
-		const { firstName, lastName, title, description, email, phoneNumber, linkedin, github, portfolio } =
-			userPersonalInfo;
+		const { firstName, lastName, title, email, phoneNumber, linkedin, github, portfolio } = userPersonalInfo;
 
 		return (
 			<section className="cv-form-section">
@@ -61,15 +60,6 @@ class PersonalInformation extends React.Component {
 						minLength={3}
 						maxLength={28}
 					/>
-					<textarea
-						value={description}
-						name="description"
-						onChange={handlePersonalInformationChange}
-						rows={5}
-						minLength={20}
-						maxLength={400}
-						placeholder="Description"
-					></textarea>
 					<input
 						type="email"
 						value={email}

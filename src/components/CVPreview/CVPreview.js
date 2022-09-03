@@ -14,8 +14,7 @@ class CVPreview extends React.Component {
 	render() {
 		// get personal information, experience list, project list :
 		const { userPersonalInfo, userExperienceList, userProjectList, userEducationList } = this.props;
-		const { firstName, lastName, title, description, email, phoneNumber, linkedin, github, portfolio } =
-			userPersonalInfo;
+		const { firstName, lastName, title, email, phoneNumber, linkedin, github, portfolio } = userPersonalInfo;
 
 		return (
 			<div className="cv-preview-container">
