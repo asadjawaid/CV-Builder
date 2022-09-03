@@ -5,7 +5,7 @@ export default class EducationCV extends React.Component {
 		const { currentEducation } = this.props;
 		const { school, major, minor, from, to, gpa, description } = currentEducation;
 		return (
-			<div className="education-cv-preview">
+			<div className="common-class education-cv-preview">
 				<div className="school-info">
 					<p>{school ? school : 'School'}</p>
 					{from ? (

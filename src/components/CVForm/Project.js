@@ -18,6 +18,7 @@ class Project extends React.Component {
 					/>
 					<textarea
 						rows={5}
+						maxLength={300}
 						name="description"
 						placeholder="Description"
 						onChange={e => handleProjectInfo(e, projectId)}

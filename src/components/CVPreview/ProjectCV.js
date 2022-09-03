@@ -3,12 +3,16 @@ import React from 'react';
 export default class ProjectCV extends React.Component {
 	render() {
 		const { currentProject } = this.props;
-		const { id, projectName, description } = currentProject;
+		const { projectName, description } = currentProject;
 
 		return (
-			<div>
-				<p>{projectName ? projectName : 'Project Name'}</p>
-				<p>{description ? description : 'Description'}</p>
+			<div className="common-class project-cv-preview">
+				{projectName ? <p id="project-name-preview">{projectName}</p> : <p>Project Name</p>}
+				{description ? (
+					<p id="project-description-preview">- {description}</p>
+				) : (
+					<p id="project-description-preview">Project Description</p>
+				)}
 			</div>
 		);
 	}
