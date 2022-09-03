@@ -77,7 +77,7 @@ class CVForm extends React.Component {
 				</button>
 
 				{/* Skills section */}
-				<h1>Skills and Achievements</h1>
+				<h1 id="skills-cv-form">Skills and Achievements</h1>
 
 				{/* Button to reset the data */}
 				<button onClick={resetInformation} className="btn reset-btn">
