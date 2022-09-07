@@ -38,6 +38,10 @@ a {
 	font-size: 0.8em;
 }
 
+.btn:disabled {
+	background-color: lightgray;
+}
+
 hr {
 	margin: 5px 0;
 	padding: 0.5px;
@@ -126,6 +130,11 @@ header h1 {
 
 #skills-cv-form {
 	margin-bottom: 10px;
+}
+
+.add-skill-btn {
+	display: block;
+	margin-bottom: 20px;
 }
 
 .cv-form-section {
