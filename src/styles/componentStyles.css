@@ -132,6 +132,17 @@ header h1 {
 	margin-bottom: 10px;
 }
 
+#skill-input {
+	padding: 5px;
+	font-size: 15px;
+	color: var(--lightBlue);
+	outline: none;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	margin-bottom: 10px;
+	width: 200px;
+}
+
 .add-skill-btn {
 	display: block;
 	margin-bottom: 20px;
@@ -304,6 +315,15 @@ Preview Header Styles
 /* Project preview css */
 #project-description-preview {
 	font-weight: lighter;
+}
+
+/* Skill css */
+#skill-input-cv {
+	background-color: var(--lightBlue);
+	color: white;
+	padding: 5px;
+	display: inline-block;
+	margin: 0 5px;
 }
 
 /* Media Queries */

@@ -21,7 +21,8 @@ class Container extends React.Component {
 			userEducationList: [],
 			userExperienceList: [],
 			userSkillList: [],
-			userProjectList: []
+			userProjectList: [],
+			skillInput: ''
 		};
 
 		this.handlePersonalInformationChange = this.handlePersonalInformationChange.bind(this);
@@ -42,6 +43,10 @@ class Container extends React.Component {
 		this.handleProjectInfo = this.handleProjectInfo.bind(this);
 		this.addNewProject = this.addNewProject.bind(this);
 		this.removeProject = this.removeProject.bind(this);
+
+		// add a skill
+		this.addSkill = this.addSkill.bind(this);
+		this.handleSkillInput = this.handleSkillInput.bind(this);
 	}
 
 	// function to update state for user personal information
@@ -67,7 +72,8 @@ class Container extends React.Component {
 			userEducationList: [],
 			userExperienceList: [],
 			userSkillList: [],
-			userProjectList: []
+			userProjectList: [],
+			skillInput: ''
 		});
 	};
 
@@ -194,6 +200,29 @@ class Container extends React.Component {
 		});
 	};
 
+	// handle Skill input
+	handleSkillInput = e => {
+		this.setState({
+			skillInput: e.target.value
+		});
+	};
+
+	// add a new skill
+	addSkill = e => {
+		if (this.state.skillInput === '') {
+			alert('Please enter a skill before adding!');
+			return;
+		}
+
+		this.setState({
+			userSkillList: this.state.userSkillList.concat(this.state.skillInput)
+		});
+
+		this.setState({
+			skillInput: ''
+		});
+	};
+
 	render() {
 		const { userPersonalInfo, userEducationList, userExperienceList, userSkillList, userProjectList } = this.state;
 
@@ -221,9 +250,18 @@ class Container extends React.Component {
 			handleProjectInfo: this.handleProjectInfo
 		};
 
+		// personal info functions
 		const personalInfoFunctions = {
 			handlePersonalInformationChange: this.handlePersonalInformationChange,
 			removeUserLinks: this.removeUserLinks
+		};
+
+		// Skill info
+		const skillInfo = {
+			userSkillList: userSkillList,
+			addSkill: this.addSkill,
+			handleSkillInput: this.handleSkillInput,
+			skillInput: this.state.skillInput
 		};
 
 		return (
@@ -235,12 +273,14 @@ class Container extends React.Component {
 					educationInfo={educationInfo}
 					projectInfo={projectInfo}
 					personalInfoFunctions={personalInfoFunctions}
+					skillInfo={skillInfo}
 				/>
 				<CVPreview
 					userPersonalInfo={userPersonalInfo}
 					userExperienceList={userExperienceList}
 					userProjectList={userProjectList}
 					userEducationList={userEducationList}
+					userSkillList={userSkillList}
 				/>
 			</div>
 		);

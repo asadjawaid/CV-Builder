@@ -6,6 +6,7 @@ import { TbBrandLinkedin, TbBrandGithub, TbUser } from 'react-icons/tb';
 import ExperienceCV from './ExperienceCV';
 import ProjectCV from './ProjectCV';
 import EducationCV from './EducationCV';
+import SkillCV from './SkillCV';
 class CVPreview extends React.Component {
 	constructor(props) {
 		super(props);
@@ -13,7 +14,7 @@ class CVPreview extends React.Component {
 
 	render() {
 		// get personal information, experience list, project list :
-		const { userPersonalInfo, userExperienceList, userProjectList, userEducationList } = this.props;
+		const { userPersonalInfo, userExperienceList, userProjectList, userEducationList, userSkillList } = this.props;
 		const { firstName, lastName, title, email, phoneNumber, linkedin, github, portfolio } = userPersonalInfo;
 
 		return (
@@ -119,6 +120,11 @@ class CVPreview extends React.Component {
 				<section className="cv-preview-skill">
 					<h1 className="cv-preview-header-text">Relevant Skills</h1>
 					<hr></hr>
+					{userSkillList.length <= 0 ? (
+						<p className="no-info">No skills added</p>
+					) : (
+						userSkillList.map((currentSkill, index) => <SkillCV key={index} currentSkill={currentSkill} />)
+					)}
 				</section>
 			</div>
 		);

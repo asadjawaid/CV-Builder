@@ -13,8 +13,15 @@ class CVForm extends React.Component {
 	}
 
 	render() {
-		const { userPersonalInfo, educationInfo, resetInformation, personalInfoFunctions, experienceInfo, projectInfo } =
-			this.props;
+		const {
+			userPersonalInfo,
+			educationInfo,
+			resetInformation,
+			personalInfoFunctions,
+			experienceInfo,
+			projectInfo,
+			skillInfo
+		} = this.props;
 
 		// get functions and objects from experienceInfo object
 		const { addExperience, removeExperience, userExperienceList, handleExperienceInfo } = experienceInfo;
@@ -24,6 +31,9 @@ class CVForm extends React.Component {
 
 		// get functions and objects from projectInfo object
 		const { addNewProject, removeProject, userProjectList, handleProjectInfo } = projectInfo;
+
+		// get skill function and list
+		const { handleSkillInput, addSkill, userSkillList, skillInput } = skillInfo;
 
 		return (
 			<div className="cv-form-container">
@@ -78,6 +88,19 @@ class CVForm extends React.Component {
 
 				{/* Skills section */}
 				<h1 id="skills-cv-form">Skills and Achievements</h1>
+				<input
+					id="skill-input"
+					name="skill"
+					value={skillInput}
+					type="text"
+					onChange={e => handleSkillInput(e)}
+					placeholder="Enter a skill"
+					minLength={5}
+					maxLength={50}
+				/>
+				<button className="btn add-skill-btn" onClick={addSkill} disabled={userSkillList.length > 4}>
+					Add Skill <TbPlus className="icon" />
+				</button>
 
 				{/* Button to reset the data */}
 				<button onClick={resetInformation} className="btn reset-btn">
