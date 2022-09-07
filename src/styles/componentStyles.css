@@ -353,6 +353,21 @@ Preview Header Styles
 	}
 }
 
+/* Footer Styles */
+footer {
+	background-color: var(--darkBlue);
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	padding: 10px 0;
+}
+
+footer p a {
+	color: white;
+	text-transform: uppercase;
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 }
